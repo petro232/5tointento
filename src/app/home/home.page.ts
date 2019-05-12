@@ -10,19 +10,29 @@ export class HomePage implements OnInit {
 
   leds = [];
 
+  list:any = [];
+
   constructor( private _esps:EspService){
     this._esps.setStates()
     .subscribe(data => {
       this.leds = data;
     });
+
+    this._esps.getList().subscribe(
+      data => {
+        this.list = data;
+      }
+    );
   }
 
-  ngOnInit(){
-
-  }
+  ngOnInit(){}
 
   onClick(led){
     this._esps.updateLedStatus(led);
+  }
+
+  clickList(item){
+    this._esps.updateList(item.key, item.payload.val())
   }
   
 

@@ -19,6 +19,14 @@
         </ion-checkbox>
       </ion-item>
 
+      <ion-item *ngFor="let item of list" (click)="clickList(item)">
+        <ion-label>{{item.key}}</ion-label>
+        <ion-checkbox
+          [(ngModel)]="item.payload.node_.value_"
+          color="success">
+        </ion-checkbox>
+      </ion-item>
+
     </ion-list>
   </div>
 </ion-content>
