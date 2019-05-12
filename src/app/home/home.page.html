@@ -1,14 +1,24 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      ESP32
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+    <h1>Luces</h1>
+    <ion-list>
+      <ion-item *ngFor="let led of leds" (click)="onClick(led)">
+        <ion-label>{{led.name}}</ion-label>
+        <ion-checkbox
+          [(ngModel)]="led.status"
+          color="success">
+        </ion-checkbox>
+      </ion-item>
+
+    </ion-list>
   </div>
 </ion-content>
