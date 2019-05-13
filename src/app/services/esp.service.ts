@@ -43,11 +43,10 @@ export class EspService {
     );
   }
 
-  updateList(item:any, status){
-    console.log(item, status);
-    this.fbRT.object('LED_STATUS').set(status);
+  updateList(item:any, status:any){
+    var status$ = status.toString();
+    console.log(typeof status$);
+    this.fbRT.object('LED_STATUS').set(status$);
   }
-
-
 
 }
