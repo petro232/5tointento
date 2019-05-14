@@ -34,6 +34,8 @@ export class EspService {
     return this.afs.collection("leds").doc(data.name.toLowerCase()).set({name: data.name, status: data.status})
   }
 
+  // =========================== //
+
   // Realtime Database
   getList(){
     return this.fbRT.list('/').snapshotChanges().pipe(
@@ -44,9 +46,10 @@ export class EspService {
   }
 
   updateList(item:any, status:any){
-    var status$ = status.toString();
-    console.log(typeof status$);
-    this.fbRT.object('LED_STATUS').set(status$);
+    const status$ = status.toString();
+    const item$ = item.toString();
+    // console.log(status$, item$);
+    this.fbRT.object(item$).set(status$);
   }
 
 }

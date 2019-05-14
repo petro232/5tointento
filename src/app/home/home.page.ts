@@ -31,6 +31,7 @@ export class HomePage implements OnInit {
     this._esps.updateLedStatus(led);
   }
 
+  
   clickList(item){
     this._esps.updateList(item.key, item.payload.val())
   }
