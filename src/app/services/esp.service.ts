@@ -36,20 +36,47 @@ export class EspService {
 
   // =========================== //
 
-  // Realtime Database
+
+
+  // =========================== //
+  //      REALTIME DATABASE      //
+  // =========================== //
+  // ----- Lista de leds ----- //
   getList(){
-    return this.fbRT.list('/').snapshotChanges().pipe(
+    return this.fbRT.list('/led').snapshotChanges().pipe(
+      map( item => {
+        return item
+      })
+    );
+  }
+  updateList(item:any, status:any){
+    const item$ = item.toString();
+    // const status$ = status.toString();
+    this.fbRT.object(`led/${item$}`).set(status);
+  }
+
+  // ----- Intensidades ----- //
+  getIntensity(){
+    return this.fbRT.list('/intensidad').snapshotChanges().pipe(
       map( item => {
         return item
       })
     );
   }
 
-  updateList(item:any, status:any){
-    const status$ = status.toString();
+  updateInt(item:any, intensidad:any){
     const item$ = item.toString();
-    // console.log(status$, item$);
-    this.fbRT.object(item$).set(status$);
+    // console.log(`intensidad/${item$}`, intensidad);
+    this.fbRT.object(`intensidad/${item$}`).set(intensidad);
+  }
+
+  // ----- Meteorologia ----- //
+  getConditions(){
+    return this.fbRT.list('/meteorologia').snapshotChanges().pipe(
+      map( item => {
+        return item
+      })
+    );
   }
 
 }
