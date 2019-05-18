@@ -5,7 +5,7 @@
 ```bash
 .
 ├── intensidad
-│   └── key: (val: 1 to 100 | type: number)
+│   └── key: (val: 1 to 100 - type: number)
 │
 ├── led
 │   └── key: (type: boolen)
