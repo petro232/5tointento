@@ -2,6 +2,7 @@
 
 # Estructura de Firebase
 
+$ ./tree-md .
 .
 +-- _intensidad
 |   +-- int1: (de 1 a 100 type number)
