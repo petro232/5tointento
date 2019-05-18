@@ -3,7 +3,7 @@
 # Estructura de Firebase
 
 .
-+-- intensidad
++-- _intensidad
 |   +-- int1: (de 1 a 100 type number)
 +-- led
 |   +-- default.html
